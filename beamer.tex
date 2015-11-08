@@ -77,38 +77,92 @@
 %ds disable controls on slides
 \setbeamertemplate{navigation symbols}{}
 
+%ds info
+\title{Online large-scale SLAM with stereo visual-inertial sensors}
+\author{Dominik Schlegel}
+\date{\today}
+
+%ds redefine footline
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \hspace{10pt}
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \textcolor{white}{\hspace{60pt}\inserttitle}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \textcolor{white}{\insertdate}\hspace*{3em}
+    \textcolor{white}{\insertframenumber{}}\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vspace{10pt}%
+}
+\makeatletter
+
 \begin{document}
 
 %ds titlepage
 {
+\setbeamertemplate{footline}{} 
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/titlepage.pdf}}
 \begin{frame}
-\vspace{-85pt}
-\center{\Huge{\textcolor{white}{Online large-scale SLAM with stereo visual-inertial sensors}}}\\
+\vspace{-70pt}
+\center{\Huge{\textcolor{white}{\inserttitle}}}\\
 \vspace{20pt}
 \begin{minipage}{1.07\textwidth}
-\textcolor{white}{\hfill\small{Dominik Schlegel}}\\
+\textcolor{white}{\hfill\small{\insertauthor}}\\
 \textcolor{white}{\hfill\small{Supervisor: Prof. Dr. Giorgio Grisetti}}
 \end{minipage}
 \vspace{10pt}\\
-\hspace{-25pt}\textcolor{white}{\small{\today}}
+\hspace{-25pt}\textcolor{white}{\small{\insertdate}}
 \end{frame}
 }
 
-\begin{frame}
-\frametitle{Our mission}
-\end{frame}
+\setcounter{framenumber}{0}
 
-\begin{frame}
-\frametitle{Related work and state of the art}
+\begin{frame}{Our mission}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/basic_concept.pdf}
+\end{figure}
+Required capabilities:
+\begin{itemize}
+\item Tracking (Odometry, Optimization, Landmark generation)
+\item Local mapping (Key frame generation, Loop closing)
+\item Global mapping (Solving of SLAM problem)
+\end{itemize}
 \end{frame}
-
+\begin{frame}{Related work and state of the art}
+Google (street) mapping:
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/google_fleet.pdf}
+\vspace{10pt}
+\begin{subfigure}[b]{0.45\textwidth}
+ORB-SLAM (Mur-Artal et al):
+ \includegraphics[width=\textwidth]{figures/introduction/ORB_SLAM.pdf}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.4\textwidth}
+ROVINA (Grisetti et al):
+ \includegraphics[width=\textwidth]{figures/introduction/ROVINA.jpg}
+\end{subfigure}
+\end{figure}
+\end{frame}
 \begin{frame}
 \frametitle{Graph-based SLAM}
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=0.925\textheight]{figures/approach_fundamentals/overview_graphslam_simplified.pdf}
+\end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Sensor setup: the VI-Sensor}
+\begin{frame}{Sensor setup: the VI-Sensor}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/vi_sensor_details.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -128,7 +182,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Videos}
+\frametitle{System in action}
 Hand-held dataset: Aula magna\\
 Bike mounted dataset: Streets in San Lorenzo
 \end{frame}
@@ -146,7 +200,7 @@ Bike mounted dataset: Streets in San Lorenzo
 \end{frame}
 
 \begin{frame}
-\frametitle{Conclusions and remarks}
+\frametitle{Conclusions and final remarks}
 \end{frame}
 
 \begin{frame}
