@@ -18,6 +18,7 @@
 \usepackage{marvosym}
 \usepackage{xstring}
 \usepackage{mfirstuc}
+\usepackage{hyperref}
 
 \lstset { %
     language=C++,
@@ -128,24 +129,24 @@
 \end{figure}
 Required capabilities:
 \begin{itemize}
-\item Tracking (Odometry, Optimization, Landmark generation)
+\item Tracking (Landmark generation, Odometry)
 \item Local mapping (Key frame generation, Loop closing)
-\item Global mapping (Solving of SLAM problem)
+\item Global mapping (Solving SLAM problem)
 \end{itemize}
 \end{frame}
 \begin{frame}{Related work and state of the art}
-Google (street) mapping:
+Google (street) mapping
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/google_fleet.pdf}
 \vspace{10pt}
 \begin{subfigure}[b]{0.45\textwidth}
-ORB-SLAM (Mur-Artal et al):
+ORB-SLAM (Mur-Artal et al)
  \includegraphics[width=\textwidth]{figures/introduction/ORB_SLAM.pdf}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.4\textwidth}
-ROVINA (Grisetti et al):
+ROVINA (Grisetti et al)
  \includegraphics[width=\textwidth]{figures/introduction/ROVINA.jpg}
 \end{subfigure}
 \end{figure}
@@ -165,46 +166,124 @@ ROVINA (Grisetti et al):
 \end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{First steps}
+\begin{frame}{First steps}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/first_steps.pdf}
+\end{figure}
+Many simplifications:
+\begin{itemize}
+\item Indoor datasets with slow steady movement
+\item Odometry by Alberto\texttrademark
+\item Minimal range and disturbance
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Least squares optimization}
+\begin{frame}{Least squares state optimization}
+\begin{itemize}
+\item StereoUV $\to$ Landmark position\\\vspace{5pt}
+\hspace{10pt}State: Positions $\mathbf{x}(x,y,z)$\\
+\hspace{10pt}Measurements: Projections $p_L,p_R$\\
+\vspace{10pt}
+\item StereoPosit $\to$ Odometry\\\vspace{5pt}
+\hspace{10pt}State: Transformation $T_{21}(R,\mathbf{t})$\\
+\hspace{10pt}Measurements: Positions $\mathbf{x}$, projections $p_L,p_R$\\
+\vspace{10pt}
+\item ICP (Besl et al) $\to$ Loop closures\\\vspace{5pt}
+\hspace{10pt}State: Transformation $T_{BA}$\\
+\hspace{10pt}Measurements: Positions $\mathbf{x}_A,\mathbf{x}_B$\\
+\vspace{10pt}
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{g2o}
-\end{frame}
-
-\begin{frame}
-\frametitle{Pipeline}
+\begin{frame}{g2o: graph-based SLAM optimization (Kümmerle et al)}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/introduction/g2o_viewer.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{System in action}
-Hand-held dataset: Aula magna\\
+Hand-held dataset: \href{run:/home/n551jw/Documents/presentation_ma/aula_magna.ogv}{Aula Magna}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.87\textwidth]{figures/movie_aula_magna.png}
+\end{figure}
 Bike mounted dataset: Streets in San Lorenzo
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.87\textwidth]{figures/movie_aula_magna.png}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Results: hand-held}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/results/stairs_combined.pdf}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/results/aula_magna.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Results: bike mounted}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/results/san_lorenzo_parco.pdf}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/results/san_lorenzo_street.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Results: KITTI}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/results/kitti_00.pdf}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/results/kitti_00.pdf}
+\end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Conclusions and final remarks}
+\begin{frame}{Conclusions and final remarks}
+Regarding our final system:
+\begin{itemize}
+\item It works!
+\item It works well
+\item It works on a bike in streets and parks
+\item It works without IMU
+\end{itemize}
+\vspace{20pt}
+What could've made things faster:
+\begin{itemize}
+\item Start off with mocked system
+\item Clear environment definition
+\item Deeper read-in phase
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Future work}
+\begin{frame}{Future work}
+Urgent:
+\begin{itemize}
+\item Filter integration (IMU)
+\item Parallelization
+\item Programmatic and cosmetic refactoring
+\item Open source publication
+\end{itemize}
+\vspace{20pt}
+Optional:
+\begin{itemize}
+\item Improved feature handling
+\item Improved graph optimization
+\end{itemize}
 \end{frame}
 
 \end{document}
