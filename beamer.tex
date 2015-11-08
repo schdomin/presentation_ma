@@ -1,0 +1,156 @@
+\documentclass[11pt]{beamer}
+
+% use utf8 instead of latin1 when using LaTeX in windows
+\usepackage[utf8]{inputenc}
+
+%ds custom packages
+%\usepackage{cleveref}
+\usepackage{empheq}
+\usepackage{graphicx}
+\usepackage[font={small}]{caption}
+\usepackage{subcaption}
+\usepackage{framed}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{xcolor}
+\usepackage{lineno}
+\usepackage{marvosym}
+\usepackage{xstring}
+\usepackage{mfirstuc}
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+%ds colors
+\definecolor{orange}{rgb}{1,0.4,0}
+\definecolor{green}{rgb}{0,0.5,0}
+
+%ds referencing
+\newcommand{\myref}[3]{\hyperref[#1]{#2} (\capitalisewords{#3} \ref{#1})}
+
+%ds blue box
+\definecolor{myblue}{rgb}{.9, .9, 1}
+
+\newlength\mytemplen
+\newsavebox\mytempbox
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+\makeatletter
+\newcommand\mybluebox{%
+    \@ifnextchar[%]
+       {\@mybluebox}%
+       {\@mybluebox[0pt]}}
+
+\def\@mybluebox[#1]{%
+    \@ifnextchar[%]
+       {\@@mybluebox[#1]}%
+       {\@@mybluebox[#1][0pt]}}
+
+\def\@@mybluebox[#1][#2]#3{
+    \sbox\mytempbox{#3}%
+    \mytemplen\ht\mytempbox
+    \advance\mytemplen #1\relax
+    \ht\mytempbox\mytemplen
+    \mytemplen\dp\mytempbox
+    \advance\mytemplen #2\relax
+    \dp\mytempbox\mytemplen
+    \colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
+
+%ds global definitions
+\def\P{\mathcal P}
+\def\tab{\phantom{tab}}
+\def\homx{\mathbf{\tilde{x}}}
+\def\trans{\mathbf{t}}
+\def\quat{\mathbf{q}}
+\renewcommand{\thesubfigure}{\arabic{subfigure}}
+
+%ds set background template
+\usebackgroundtemplate
+{
+    \includegraphics[width=\paperwidth]{figures/slides.pdf}%
+}
+
+%ds disable controls on slides
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+%ds titlepage
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/titlepage.pdf}}
+\begin{frame}
+\vspace{-85pt}
+\center{\Huge{\textcolor{white}{Online large-scale SLAM with stereo visual-inertial sensors}}}\\
+\vspace{20pt}
+\begin{minipage}{1.07\textwidth}
+\textcolor{white}{\hfill\small{Dominik Schlegel}}\\
+\textcolor{white}{\hfill\small{Supervisor: Prof. Dr. Giorgio Grisetti}}
+\end{minipage}
+\vspace{10pt}\\
+\hspace{-25pt}\textcolor{white}{\small{\today}}
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{Our mission}
+\end{frame}
+
+\begin{frame}
+\frametitle{Related work and state of the art}
+\end{frame}
+
+\begin{frame}
+\frametitle{Graph-based SLAM}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sensor setup: the VI-Sensor}
+\end{frame}
+
+\begin{frame}
+\frametitle{First steps}
+\end{frame}
+
+\begin{frame}
+\frametitle{Least squares optimization}
+\end{frame}
+
+\begin{frame}
+\frametitle{g2o}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pipeline}
+\end{frame}
+
+\begin{frame}
+\frametitle{Videos}
+Hand-held dataset: Aula magna\\
+Bike mounted dataset: Streets in San Lorenzo
+\end{frame}
+
+\begin{frame}
+\frametitle{Results: hand-held}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results: bike mounted}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results: KITTI}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions and remarks}
+\end{frame}
+
+\begin{frame}
+\frametitle{Future work}
+\end{frame}
+
+\end{document}
