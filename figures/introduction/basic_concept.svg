@@ -1099,7 +1099,7 @@
      inkscape:cx="1139.0936"
      inkscape:cy="142.11253"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g8811"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1028"
@@ -1428,16 +1428,16 @@
         </g>
         <text
            xml:space="preserve"
-           style="font-size:32.47214508px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Math;-inkscape-font-specification:Sans"
-           x="139.91403"
-           y="272.29587"
+           style="font-size:29.22961044px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Math;-inkscape-font-specification:Sans"
+           x="122.15637"
+           y="248.56046"
            id="text4455"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
              id="tspan4457"
-             x="139.91403"
-             y="272.29587"
-             style="font-size:116.89972687px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">SLAM</tspan></text>
+             x="122.15637"
+             y="248.56046"
+             style="font-size:105.22660065px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">Mapper</tspan></text>
       </g>
     </g>
     <g

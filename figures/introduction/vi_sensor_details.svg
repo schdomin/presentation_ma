@@ -120,17 +120,6 @@
        id="tspan3008-7"
        x="695.47711"
        y="523.74231">Gigabit Ethernet</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
-     x="367.20612"
-     y="513.54083"
-     id="text3006-94-1"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
-       id="tspan3008-7-9"
-       x="367.20612"
-       y="513.54083">Power plugs</tspan></text>
   <path
      style="fill:none;stroke:#9696ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:none;display:inline"
      d="m 138.87765,112.1375 71.05897,110.97718"
@@ -147,18 +136,6 @@
      style="fill:none;stroke:#9696ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:none;display:inline"
      d="m 786.35866,85.22073 51.19822,141.94965"
      id="path3081"
-     inkscape:connector-type="polyline"
-     inkscape:connector-curvature="0" />
-  <path
-     style="fill:none;stroke:#9696ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:none;display:inline"
-     d="m 500.93341,486.73547 85.16979,-65.9052"
-     id="path3083"
-     inkscape:connector-type="polyline"
-     inkscape:connector-curvature="0" />
-  <path
-     style="fill:none;stroke:#9696ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:none;display:inline"
-     d="m 457.33459,483.69369 36.50134,-58.80772"
-     id="path3085"
      inkscape:connector-type="polyline"
      inkscape:connector-curvature="0" />
   <path

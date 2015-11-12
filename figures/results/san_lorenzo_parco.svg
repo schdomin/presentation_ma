@@ -15,7 +15,7 @@
    inkscape:version="0.48.4 r9939"
    width="2756.4556"
    height="929.40002"
-   sodipodi:docname="san_lorenzo_parco.pdf">
+   sodipodi:docname="san_lorenzo_parco.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -122,12 +122,12 @@
        x="20.408001"
        y="263.84241"
        style="font-size:72px"
-       id="tspan3056-6">Key frames: 591</tspan><tspan
+       id="tspan3056-6">Key frames: 657</tspan><tspan
        sodipodi:role="line"
        x="20.408001"
        y="353.84241"
        style="font-size:72px"
-       id="tspan3073">Landmarks: 12256 (25%)</tspan><tspan
+       id="tspan3073">Landmarks: 17126</tspan><tspan
        sodipodi:role="line"
        x="20.408001"
        y="443.84241"
@@ -152,12 +152,12 @@
        x="20.408001"
        y="803.84241"
        style="font-size:72px"
-       id="tspan3077">Recording time: 443s</tspan><tspan
+       id="tspan3077">Recording time: 497s</tspan><tspan
        sodipodi:role="line"
        x="20.408001"
        y="893.84241"
        style="font-size:72px"
-       id="tspan3079">Trajectory length: 394m </tspan></text>
+       id="tspan3079">Trajectory length: 381m </tspan></text>
   <text
      xml:space="preserve"
      style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Math;-inkscape-font-specification:Sans"

@@ -15,7 +15,7 @@
    inkscape:version="0.48.4 r9939"
    width="3438.6523"
    height="929.40002"
-   sodipodi:docname="aula_magna.pdf">
+   sodipodi:docname="aula_magna.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -140,7 +140,7 @@
        x="41.692509"
        y="874.56805"
        style="font-size:72px"
-       id="tspan3117">Landmarks: 4049 (22%) </tspan></text>
+       id="tspan3117">Landmarks: 4049 </tspan></text>
   <text
      xml:space="preserve"
      style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Math;-inkscape-font-specification:Sans"

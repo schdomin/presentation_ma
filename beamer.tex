@@ -19,6 +19,7 @@
 \usepackage{xstring}
 \usepackage{mfirstuc}
 \usepackage{hyperref}
+\usepackage{biblatex}
 
 \lstset { %
     language=C++,
@@ -69,6 +70,8 @@
 \def\quat{\mathbf{q}}
 \renewcommand{\thesubfigure}{\arabic{subfigure}}
 
+\renewcommand{\footnotesize}{\tiny}
+
 %ds set background template
 \usebackgroundtemplate
 {
@@ -87,17 +90,17 @@
 \makeatother
 \setbeamertemplate{footline}
 {
-  \leavevmode%
+\vspace{5pt}
   \hbox{%
   \hspace{10pt}
-  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \textcolor{white}{\hspace{60pt}\inserttitle}
+  \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \textcolor{white}{\hspace{70pt}\inserttitle}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
     \textcolor{white}{\insertdate}\hspace*{3em}
     \textcolor{white}{\insertframenumber{}}\hspace*{1ex}
   \end{beamercolorbox}}%
-  \vspace{10pt}%
+  \vspace{2pt}%
 }
 \makeatletter
 
@@ -116,116 +119,184 @@
 \textcolor{white}{\hfill\small{Supervisor: Prof. Dr. Giorgio Grisetti}}
 \end{minipage}
 \vspace{10pt}\\
-\hspace{-25pt}\textcolor{white}{\small{\insertdate}}
+\hspace{-28pt}\textcolor{white}{\small{\insertdate}}
 \end{frame}
 }
 
 \setcounter{framenumber}{0}
 
-\begin{frame}{Our mission}
+\begin{frame}{Aim of this project}
+Map the world using a stereo camera and an IMU:
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/basic_concept.pdf}
 \end{figure}
 Required capabilities:
 \begin{itemize}
-\item Tracking (Landmark generation, Odometry)
-\item Local mapping (Key frame generation, Loop closing)
-\item Global mapping (Solving SLAM problem)
+\item Tracking  (Localization)
+\item Mapping (Solving SLAM problem)
 \end{itemize}
 \end{frame}
-\begin{frame}{Related work and state of the art}
+
+\begin{frame}
+\frametitle{Graph-based SLAM: The problem}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/approach_fundamentals/overview_graphslam_simplified.pdf}
+\end{figure}
+\vspace{14.9pt}
+\end{frame}
+
+\begin{frame}
+\frametitle{Graph-based SLAM: The solution with g2o
+\footfullcite{Kuemmerle, R., Grisetti, G., Strasdat, H., Konolige, K., Burgard, W.: g2o: A
+general framework for graph optimization (ICRA 2011)}}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/approach_fundamentals/overview_graphslam_simplified_solved.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{State of the art}
 Google (street) mapping
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/google_fleet.pdf}
-\vspace{10pt}
-\begin{subfigure}[b]{0.45\textwidth}
-ORB-SLAM (Mur-Artal et al)
- \includegraphics[width=\textwidth]{figures/introduction/ORB_SLAM.pdf}
+\vspace{10pt}\\
+ORB-SLAM \hspace{15pt} FrameSLAM \hspace{10pt} MonoSLAM \hspace{20pt} SVO\hfill\vspace{5pt}\\
+\begin{subfigure}[b]{\textwidth}
+\includegraphics[scale=0.2]{figures/introduction/ORB_SLAM.pdf}
+\includegraphics[scale=0.1]{figures/introduction/frameslam.pdf}
+\includegraphics[scale=0.1]{figures/introduction/monoslam.pdf}
+\includegraphics[scale=0.1]{figures/introduction/svo.pdf}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.4\textwidth}
-ROVINA (Grisetti et al)
- \includegraphics[width=\textwidth]{figures/introduction/ROVINA.jpg}
-\end{subfigure}
-\end{figure}
-\end{frame}
-\begin{frame}
-\frametitle{Graph-based SLAM}
-\begin{figure}[!htb]
-\centering
-\includegraphics[height=0.925\textheight]{figures/approach_fundamentals/overview_graphslam_simplified.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Sensor setup: the VI-Sensor}
+%\footfullcite{Mur-Artal, R., Montiel, J., Tardos, J.D.: ORB-SLAM: a Versatile and Accurate Monocular SLAM System (RSS 2015)}
+
+\begin{frame}{Sensor setup: the VI-Sensor
+\footfullcite{Nikolic, J., Rehder, J., Burri, M., Gohl, P., Leutenegger, S., Furgale, P.T., Siegwart,R.:
+A synchronized visual-inertial sensor system with FPGA pre-processing for accurate real-time SLAM (ICRA 2014)}}
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/vi_sensor_details.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}{First steps}
+\begin{frame}{Our system}
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/first_steps.pdf}
+\includegraphics[width=\textwidth]{figures/approach_softwaredesign/pipeline.pdf}
 \end{figure}
-Many simplifications:
+Contributions: StereoPosit, StereoUV, Loop closure detection
+\end{frame}
+
+%\begin{frame}{First steps}
+%\begin{figure}[!htb]
+%\centering
+%\includegraphics[width=\textwidth]{figures/introduction/first_steps.pdf}
+%\end{figure}
+%Many simplifications:
+%\begin{itemize}
+%\item Indoor datasets with slow steady movement
+%\item Odometry by Alberto\texttrademark
+%\item Minimal range and disturbance
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Least squares state optimization}
+%\begin{itemize}
+%\item StereoUV $\to$ Landmark position\\\vspace{5pt}
+%\hspace{10pt}State: Positions $\mathbf{x}(x,y,z)$\\
+%\hspace{10pt}Measurements: Projections $p_L,p_R$\\
+%\vspace{10pt}
+%\item StereoPosit $\to$ Odometry\\\vspace{5pt}
+%\hspace{10pt}State: Transformation $T_{21}(R,\mathbf{t})$\\
+%\hspace{10pt}Measurements: Positions $\mathbf{x}$, projections $p_L,p_R$\\
+%\vspace{10pt}
+%\item ICP (Besl et al) $\to$ Loop closures\\\vspace{5pt}
+%\hspace{10pt}State: Transformation $T_{BA}$\\
+%\hspace{10pt}Measurements: Positions $\mathbf{x}_A,\mathbf{x}_B$\\
+%\vspace{10pt}
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Tracking: Complete pipeline}
+%\begin{figure}[!htb]
+%\centering
+%\includegraphics[width=\textwidth]{figures/approach_tracking/pipeline_tracking_module.pdf}
+%\end{figure}
+%\begin{itemize}
+%\item Multi-stage tracking approach
+%\item IMU integration (odometry)
+%\item Contribution: StereoPosit optimization
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{Tracking: Regional tracking
+%\footfullcite{Shi, J., Tomasi, C.: Good features to track. In: Computer Vision and Pattern Recognition, 1994. Proceedings CVPR’94., 1994 IEEE Computer Society Conference}
+\footfullcite{Calonder, M., Lepetit, V., Strecha, C., Fua, P.: Brief: Binary robust independent elementary features. Computer Vision-ECCV 2010}}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/approach_tracking/concept_regional_tracking.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Tracking: Epipolar tracking
+\footfullcite{Richard, Hartley; Andrew, Z.: Multiple View Geometry in Computer Vision. Cambridge University Press (March 2004)}}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/approach_tracking/concept_epipolar_tracking.pdf}
+\end{figure}
+In action: \href{run:/home/n551jw/Documents/presentation_ma/aula_magna.ogv}{\textcolor{blue}{Aula Magna}}
+\end{frame}
+
+%\begin{frame}{Loop closing: Problem statement}
+%\begin{figure}[!htb]
+%\centering
+%\includegraphics[width=\textwidth]{figures/approach_loopclosing/problem_scenario.pdf}
+%\end{figure}
+%Measures to solve this problem:
+%\begin{itemize}
+%\item Detection of loop closures (déjà vu moment)
+%\item Determine spatial relation between closures
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{Loop closing: Our approach}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/approach_loopclosing/loop_closing.pdf}
+\end{figure}
 \begin{itemize}
-\item Indoor datasets with slow steady movement
-\item Odometry by Alberto\texttrademark
-\item Minimal range and disturbance
+\item Step 1: Find matching landmarks (Contribution)
+\item Step 2: Compute spatial relation: ICP
+\footfullcite{Besl, P.J., McKay, N.D.: Method for registration of 3-D shapes. Proc. SPIE 1611 (1992)}
+\hfill \href{run:/home/n551jw/Documents/presentation_ma/aula_magna.ogv}{\textcolor{blue}{Aula Magna}}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Least squares state optimization}
-\begin{itemize}
-\item StereoUV $\to$ Landmark position\\\vspace{5pt}
-\hspace{10pt}State: Positions $\mathbf{x}(x,y,z)$\\
-\hspace{10pt}Measurements: Projections $p_L,p_R$\\
-\vspace{10pt}
-\item StereoPosit $\to$ Odometry\\\vspace{5pt}
-\hspace{10pt}State: Transformation $T_{21}(R,\mathbf{t})$\\
-\hspace{10pt}Measurements: Positions $\mathbf{x}$, projections $p_L,p_R$\\
-\vspace{10pt}
-\item ICP (Besl et al) $\to$ Loop closures\\\vspace{5pt}
-\hspace{10pt}State: Transformation $T_{BA}$\\
-\hspace{10pt}Measurements: Positions $\mathbf{x}_A,\mathbf{x}_B$\\
-\vspace{10pt}
-\end{itemize}
-\end{frame}
+%\begin{frame}
+%\frametitle{System in action}
+%Hand-held dataset: \href{run:/home/n551jw/Documents/presentation_ma/aula_magna.ogv}{Aula Magna}
+%\begin{figure}[!htb]
+%\centering
+%\includegraphics[width=\textwidth]{figures/movie_aula_magna.png}
+%\end{figure}
+%\end{frame}
 
-\begin{frame}{g2o: graph-based SLAM optimization (Kümmerle et al)}
+\begin{frame}{Data acquisition
+\footfullcite{Geiger, A., Lenz, P., Urtasun, R.: Are we ready for autonomous driving? the KITTI
+vision benchmark suite (CVPR 2012)}}
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/introduction/g2o_viewer.pdf}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Data acquisition}
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\textwidth]{figures/results/data_acquisition.pdf}
+\includegraphics[width=0.7\textwidth]{figures/results/data_acquisition.pdf}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{System in action}
-Hand-held dataset: \href{run:/home/n551jw/Documents/presentation_ma/aula_magna.ogv}{Aula Magna}
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.87\textwidth]{figures/movie_aula_magna.png}
-\end{figure}
-Bike mounted dataset: Streets in San Lorenzo
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.87\textwidth]{figures/movie_aula_magna.png}
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Results: hand-held}
+\frametitle{Results: Hand-held}
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{figures/results/stairs_combined.pdf}
@@ -237,7 +308,7 @@ Bike mounted dataset: Streets in San Lorenzo
 \end{frame}
 
 \begin{frame}
-\frametitle{Results: bike mounted}
+\frametitle{Results: Bike}
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/results/san_lorenzo_parco.pdf}
@@ -250,47 +321,44 @@ Bike mounted dataset: Streets in San Lorenzo
 
 \begin{frame}
 \frametitle{Results: KITTI odometry benchmark (without IMU)}
+Trajectory overlay: \hfill Errors (KITTI standard): \hspace{25pt}
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=\textwidth]{figures/results/kitti_00.pdf}
+\includegraphics[width=0.49\textwidth]{figures/results/00.pdf}\hspace{10pt}
+\begin{subfigure}[b]{0.46\textwidth}
+\includegraphics[width=\textwidth]{figures/results/00_tl.pdf}\\
+\includegraphics[width=\textwidth]{figures/results/00_rl.pdf}
+\end{subfigure}
 \end{figure}
-\begin{itemize}
-\item Trajectory length: 3697m
-\item Duration: 454s
-\item Total relative error: 6\%
-\end{itemize}
+Total trajectory length: 3722m
 \end{frame}
 
-\begin{frame}{Conclusions and final remarks}
-Regarding our final system:
-\begin{itemize}
-\item It works!
-\item It works well
-\item It works on a bike in streets and parks
-\item It works without IMU
-\end{itemize}
-\vspace{20pt}
-What could've made things faster:
-\begin{itemize}
-\item Start off with mocked system
-\item Clear environment definition
-\item Deeper read-in phase
-\end{itemize}
-\end{frame}
+%\begin{frame}{Trajectory error}
+%\begin{figure}[!htb]
+%\includegraphics[width=0.65\textwidth]{figures/results/00_tl.pdf}\\
+%\includegraphics[width=0.65\textwidth]{figures/results/00_rl.pdf}
+%\end{figure}
+%\end{frame}
 
-\begin{frame}{Future work}
-Urgent:
+\begin{frame}{Conclusions and remarks}
+Final system:
 \begin{itemize}
-\item Filter integration (IMU)
-\item Parallelization
-\item Programmatic and cosmetic refactoring
-\item Open source publication
+\item Outstanding robustness
+\item High accuracy (Map overlays, 1-5\% KITTI error)
+\item Strong, independent odometry (KITTI)
+\item Modularity (Multithreading)
 \end{itemize}
-\vspace{20pt}
-Optional:
+\vspace{10pt}
+Future work:
 \begin{itemize}
+\item Filter integration
+\footfullcite{Forster, C., Carlone, L., Dellaert, F., Scaramuzza, D.: IMU Preintegration on Manifold
+for Efficient Visual-Inertial Maximum-a-Posteriori Estimation. (RSS 2015)} (IMU)
 \item Improved feature handling
+\footfullcite{Rublee, E., Rabaud, V., Konolige, K., Bradski, G.: ORB: an efficient alternative to
+SIFT or SURF. (ICCV 2011)}
 \item Improved graph optimization
+\footfullcite{Grisetti, Giorgio, Rainer Kuemmerle, and Kai Ni. Robust optimization of factor graphs by using condensed measurements. (IROS 2012)}
 \end{itemize}
 \end{frame}
 
@@ -306,7 +374,7 @@ Optional:
 \textcolor{white}{\hfill\small{Supervisor: Prof. Dr. Giorgio Grisetti}}
 \end{minipage}
 \vspace{10pt}\\
-\hspace{-25pt}\textcolor{white}{\small{\insertdate}}
+\hspace{-28pt}\textcolor{white}{\small{\insertdate}}
 \end{frame}
 }
 
